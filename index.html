@@ -1,143 +1,19 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MOA Revenue and Gross Profit Calculator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-        .calculator {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        input, select {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        .results {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #e8f5e9;
-            border-radius: 4px;
-            display: none;
-        }
-        .results h3 {
-            margin-top: 0;
-        }
-        .result-section {
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #ddd;
-        }
-        .result-section:last-child {
-            border-bottom: none;
-        }
-        .result-section h4 {
-            margin: 0 0 10px 0;
-            color: #2e7d32;
-        }
-    </style>
-</head>
-<body>
-    <div class="calculator">
-        <h2>MOA Revenue and Gross Profit Calculator</h2>
-        <p>Calculate the potential revenue and gross profit by selling BG Products' Motor Oil Additive (MOA) and optional add-ons with every oil change.</p>
-        <div class="form-group">
-            <label for="oilChanges">Daily Oil Changes:</label>
-            <input type="number" id="oilChanges" placeholder="Enter number of oil changes" min="0" required>
-        </div>
-        <div class="form-group">
-            <label for="retailPrice polymorp">Retail Price per Package ($):</label>
-            <input type="number" id="retailPrice" placeholder="Enter retail price per package" min="0" step="0.01" required>
-        </div>
-        <div class="form-group">
-            <label for="productOption">Product Package:</label>
-            <select id="productOption" required>
-                <option value="12">MOA Only ($12 cost)</option>
-                <option value="26">MOA + EPR ($26 cost)</option>
-                <option value="46">MOA + EPR + 44K Fuel System Cleaner ($46 cost)</option>
-            </select>
-        </div>
-        <button onclick="calculate()">Calculate</button>
-        <div class="results" id="results">
-            <h3>Results</h3>
-            <div class="result-section">
-                <h4>Daily Results</h4>
-                <p id="dailyRevenue"></p>
-                <p id="dailyGrossProfit"></p>
-            </div>
-            <div class="result-section">
-                <h4>Monthly Results (20 working days)</h4>
-                <p id="monthlyRevenue"></p>
-                <p id="monthlyGrossProfit"></p>
-            </div>
-            <div class="result-section">
-                <h4>Annual Results (260 working days)</h4>
-                <p id="annualRevenue"></p>
-                <p id="annualGrossProfit"></p>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function calculate() {
-            const oilChanges = parseFloat(document.getElementById('oilChanges').value);
-            const retailPrice = parseFloat(document.getElementById('retailPrice').value);
-            const fixedCostPerUnit = parseFloat(document.getElementById('productOption').value);
-
-            if (isNaN(oilChanges) || isNaN(retailPrice)) {
-                alert('Please enter valid numbers for both fields.');
-                return;
-            }
-
-            const dailyRevenue = oilChanges * retailPrice;
-            const dailyTotalCost = oilChanges * fixedCostPerUnit;
-            const dailyGrossProfit = dailyRevenue - dailyTotalCost;
-            const monthlyRevenue = dailyRevenue * 20; // 5 days/week * 4 weeks
-            const monthlyGrossProfit = dailyGrossProfit * 20; // 5 days/week * 4 weeks
-            const annualRevenue = dailyRevenue * 260; // 5 days/week * 52 weeks
-            const annualGrossProfit = dailyGrossProfit * 260; // 5 days/week * 52 weeks
-
-            document.getElementById('dailyRevenue').textContent = `Daily Revenue: $${dailyRevenue.toFixed(2)}`;
-            document.getElementById('dailyGrossProfit').textContent = `Daily Gross Profit: $${dailyGrossProfit.toFixed(2)}`;
-            document.getElementById('monthlyRevenue').textContent = `Monthly Revenue: $${monthlyRevenue.toFixed(2)}`;
-            document.getElementById('monthlyGrossProfit').textContent = `Monthly Gross Profit: $${monthlyGrossProfit.toFixed(2)}`;
-            document.getElementById('annualRevenue').textContent = `Annual Revenue: $${annualRevenue.toFixed(2)}`;
-            document.getElementById('annualGrossProfit').textContent = `Annual Gross Profit: $${annualGrossProfit.toFixed(2)}`;
-            document.getElementById('results').style.display = 'block';
-        }
-    </script>
-</body>
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>My static Space</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="card">
+			<h1>Welcome to your static Space!</h1>
+			<p>You can modify this app directly by editing <i>index.html</i> in the Files and versions tab.</p>
+			<p>
+				Also don't forget to check the
+				<a href="https://huggingface.co/docs/hub/spaces" target="_blank">Spaces documentation</a>.
+			</p>
+		</div>
+	</body>
 </html>
